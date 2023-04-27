@@ -1,5 +1,5 @@
-# Ejemplo Documentación Dojos
-![Tinkercad](./img/ArduinoTinkercad.jpg)
+# Documentacion Dojo D (Ejercicio 1)
+![Tinkercad](https://github.com/DanielaGonzaleez/SPD_Dojo1/blob/main/ArduinoTinkercad.jpg)
 
 
 ## Integrantes
@@ -12,7 +12,7 @@
 
 
 ## Proyecto: Contador binario.
-![Tinkercad](./img/SemaforoParaCiegos.png)
+![Tinkercad](https://github.com/DanielaGonzaleez/SPD_Dojo1/blob/main/SemaforoParaCiegos.png)
 
 
 ## Descripción
