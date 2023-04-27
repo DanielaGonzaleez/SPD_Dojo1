@@ -11,7 +11,7 @@
 - Soto, Camila
 
 
-## Proyecto: Contador binario.
+## Proyecto: Semáforo.
 ![Tinkercad](https://github.com/DanielaGonzaleez/SPD_Dojo1/blob/main/SemaforoParaCiegos.png)
 
 
