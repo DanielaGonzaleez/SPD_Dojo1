@@ -1,1 +1,66 @@
-Chau
+#define LED_VERDE_UNO 13
+#define LED_VERDE_DOS 10
+#define LED_AMARILLO_UNO 11
+#define LED_AMARILLO_DOS 9
+#define LED_ROJO_UNO 12
+#define LED_ROJO_DOS 8
+#define BUZZER 2
+
+void setup()
+{
+  pinMode(LED_VERDE_UNO, OUTPUT);
+  pinMode(LED_VERDE_DOS, OUTPUT);
+  pinMode(LED_AMARILLO_UNO, OUTPUT);
+  pinMode(LED_AMARILLO_DOS, OUTPUT);
+  pinMode(LED_ROJO_UNO, OUTPUT);
+  pinMode(LED_ROJO_DOS, OUTPUT);
+  pinMode(BUZZER, OUTPUT);
+  Serial.begin (9600);
+  Serial.println ("Declaramos el buzzer y las led como componentes de salida");
+}
+
+void loop()
+{
+  prender (LED_VERDE_UNO,LED_VERDE_DOS, 5000);
+  Serial.println ("Le enviamos los parametros a la funcion de los componentes que debe encender, y durante cuanto tiempo");
+  apagar (LED_VERDE_UNO,LED_VERDE_DOS, 500);
+  Serial.println ("Enviamos los parametros anteriores, pero a la funcion que se encarga de apagar los componentes");
+  
+  prender(LED_AMARILLO_UNO,LED_AMARILLO_DOS, 3000);
+  apagar (LED_AMARILLO_UNO, LED_AMARILLO_DOS,500);
+  Serial.println ("Repetimos la accion, pero esta vez con las led amarillas");
+  
+  prender (LED_ROJO_UNO,LED_ROJO_DOS,0);
+  Serial.println ("Encendemos la led roja");
+  Serial.println ("Llamamos a la funcion que enciende el buzzer");
+  sonar_buzzer (10, 500);
+  apagar (LED_ROJO_UNO, LED_ROJO_DOS,0);
+  Serial.println ("Apagamos la led luego de finalizar el buzzer y continúa el loop");
+  
+}
+
+void prender(int aparato, int aparato_dos, int tiempo)
+{
+  digitalWrite (aparato, HIGH);
+  digitalWrite (aparato_dos, HIGH);
+  delay (tiempo);
+}
+
+void apagar (int aparato, int aparato_dos, int tiempo)
+{
+  digitalWrite (aparato, LOW);
+  digitalWrite (aparato_dos, LOW);
+  delay (tiempo);
+}
+
+void sonar_buzzer(int veces, int tono)
+{
+  Serial.println ("Encendemos el buzzer dentro de la funcion:");
+  for (int i = 0; i < veces; i++)
+  {
+    tone (BUZZER, tono);
+    delay (250);
+    noTone (BUZZER);
+    delay (250);
+  }
+}
