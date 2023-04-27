@@ -12,7 +12,7 @@
 
 
 ## Proyecto: Semáforo.
-![Tinkercad](https://github.com/DanielaGonzaleez/SPD_Dojo1/blob/main/SemaforoParaCiegos.png)
+![Tinkercad](https://github.com/DanielaGonzaleez/SPD_Dojo1/blob/main/SemaforoParaCiegos2.png)
 
 
 ## Descripción
