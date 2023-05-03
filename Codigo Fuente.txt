@@ -22,20 +22,30 @@ void setup()
 void loop()
 {
   prender (LED_VERDE_UNO,LED_VERDE_DOS, 5000);
-  Serial.println ("Le enviamos los parametros a la funcion de los componentes que debe encender, y durante cuanto tiempo");
+  //Serial.println ("Le enviamos los parametros a la funcion de los componentes que debe encender, y durante cuanto tiempo");
   apagar (LED_VERDE_UNO,LED_VERDE_DOS, 500);
-  Serial.println ("Enviamos los parametros anteriores, pero a la funcion que se encarga de apagar los componentes");
+  titilar (LED_VERDE_UNO, LED_VERDE_DOS, 200);
+  //Serial.println ("Enviamos los parametros anteriores, pero a la funcion que se encarga de apagar los componentes");
   
-  prender(LED_AMARILLO_UNO,LED_AMARILLO_DOS, 3000);
+  prender(LED_AMARILLO_UNO,LED_AMARILLO_DOS, 0);
+  sonar_buzzer (3,2000,1000);
   apagar (LED_AMARILLO_UNO, LED_AMARILLO_DOS,500);
-  Serial.println ("Repetimos la accion, pero esta vez con las led amarillas");
+  //Serial.println ("Repetimos la accion, pero esta vez con las led amarillas");
+  titilar (LED_AMARILLO_UNO, LED_AMARILLO_DOS,200);
   
   prender (LED_ROJO_UNO,LED_ROJO_DOS,0);
-  Serial.println ("Encendemos la led roja");
-  Serial.println ("Llamamos a la funcion que enciende el buzzer");
-  sonar_buzzer (10, 500);
-  apagar (LED_ROJO_UNO, LED_ROJO_DOS,0);
-  Serial.println ("Apagamos la led luego de finalizar el buzzer y continúa el loop");
+  //Serial.println ("Encendemos la led roja");
+  //Serial.println ("Llamamos a la funcion que enciende el buzzer");
+  sonar_buzzer (10, 4000, 250);
+  apagar (LED_ROJO_UNO, LED_ROJO_DOS,500);
+  //Serial.println ("Apagamos la led luego de finalizar el buzzer");
+  titilar (LED_ROJO_UNO, LED_ROJO_DOS,200);
+  
+  prender(LED_AMARILLO_UNO,LED_AMARILLO_DOS, 0);
+  sonar_buzzer (3,2000,1000);
+  apagar (LED_AMARILLO_UNO, LED_AMARILLO_DOS,500);
+  //Serial.println ("Repetimos la accion por ultima vez y continúa el loop");
+  titilar (LED_AMARILLO_UNO, LED_AMARILLO_DOS, 200);
   
 }
 
@@ -53,14 +63,24 @@ void apagar (int aparato, int aparato_dos, int tiempo)
   delay (tiempo);
 }
 
-void sonar_buzzer(int veces, int tono)
+void sonar_buzzer(int veces, int tono, int tiempo)
 {
   Serial.println ("Encendemos el buzzer dentro de la funcion:");
   for (int i = 0; i < veces; i++)
   {
-    tone (BUZZER, tono);
-    delay (250);
+  	tone (BUZZER, tono);
+    delay (tiempo);
     noTone (BUZZER);
-    delay (250);
+    delay (tiempo);
   }
+}
+
+void titilar (int led_uno, int led_dos, int tiempo)
+{
+  prender (led_uno, led_dos, tiempo);
+  apagar (led_uno, led_dos, tiempo);
+  prender (led_uno, led_dos, tiempo);
+  apagar (led_uno, led_dos, tiempo);
+  prender (led_uno, led_dos, tiempo);
+  apagar (led_uno, led_dos, tiempo);
 }
